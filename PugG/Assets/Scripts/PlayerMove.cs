@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour {
 
 	private Rigidbody2D rb;
+	private AudioManager am;
 	private Vector3 motion = Vector3.zero;
 	private float speed = 0.03f;
 	private float inputH = 0f;
@@ -19,6 +20,9 @@ public class PlayerMove : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
+		am = FindObjectOfType<AudioManager>();
+		am.Play("Song1");
+		am.FadeIn("Song1");
 	}
 	
 	// Update is called once per frame

@@ -8,6 +8,7 @@
 - enemy sprites
 - other sprites
 - Song 1
+- audio manager
 
 ## Goals for 3/15
 ***Programming***
@@ -20,11 +21,9 @@
 - player HP bar
 - obstacles that can hurt the player (just generic spikes or something for now)
 - implement the real art
-- audio manager [in progress by Zac]
 
 ***Art***
 - tile sets for house (background & foreground) [in progress by Sam]
-- fire hydrant sprite
 - see the list posted on Discord
 
 *( ) means optional goal, may become mandatory for next meeting*

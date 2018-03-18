@@ -17,7 +17,8 @@
 - food & score increasing [in progress by Vincent]
 - generic enemy AI (follow player if nearby, hurt player)
 - dying & restarting from checkpoint
-- obstacles
+- player HP bar
+- obstacles that can hurt the player (just generic spikes or something for now)
 - implement the real art
 - audio manager [in progress by Zac]
 

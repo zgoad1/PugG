@@ -1,0 +1,36 @@
+GUIDELINES
+
+- Tiles should be squares in powers of 2. The standard tile size for this project is 32x32.
+
+- Characters should also be in powers of 2, but do not have to be squares. The player is 32x32; human enemies are 32x64.
+
+- For animated sprites, use GIFs rather than sprite sheets.
+
+- Keep each image at its regular resolution, i.e., one pixel in the image when not zoomed in is one pixel on the screen. Do not scale it up, because the camera will zoom into the image in-game, making the pixels visible and giving the retro effect we're going for.
+
+- Use the player's size (32x32) for reference for other sprites. e.g., a human enemy should not be shorter than the player. Do not make sprites with the intention for them to be scaled up in Unity, because then those pixels will be bigger than others and it will look like we don't understand how pixel games work.
+
+
+IMPORTING SPRITES INTO THE PROJECT
+
+1. Drag them into PugG > Assets > Images. If importing many images, you may want to put them in a temporary folder for now. It will be important to know which ones are new.
+
+2. Open Unity and navigate to the same folder in its file explorer.
+
+3. Click on each newly-imported image. In the Inspector, set Pixels Per Unit to 64. Set Filter Mode to Point. Set Compression to None. If the sprite is a tileset, set Sprite Mode to Multiple. If not a tileset, no further action is required; stop here.
+
+(Further steps only apply to tilesets. If it is a tileset but you don't have time, you can skip them.)
+
+4. In the Inspector, click on Sprite Editor. If prompted, click Apply. When the window comes up, click Slice near the top left. Set Type to Grid by Cell Size. Set Pixel Size X and Y to the size in pixels of each tile (usually 32). Click Slice, and then click Apply on the top toolbar.
+
+You can stop here if we don't have a place for these tiles yet. If we do, you can continue.
+
+5. Look at the Heirarchy tab. There should be a Grid. If you expand this drop down menu, you should see Tilemap objects (Tilemap_Foreground, Tilemap_Background, etc.). If a corresponding tilemap does not exist, right-click the Grid object and click 2D Object > Tilemap. Name the tilemap accordingly. If it is a foreground tilemap (something the player should be able to collide with), add a Tilemap Collider 2D component to it.
+
+6. Under the Tilemap Renderer component, which was added automatically, set Order in Layer according to the depth of this tilemap. Higher order is closer to the screen and is drawn on top of other tilemaps, and vice versa. Compare it to the other tilemaps to see what to set it to.
+
+7. If your Tile Palette tab in Unity is not already open, go to Window > Tile Palette. Dock the new tab somewhere on the screen. Set Active Tilemap to the one you're using, and under the Palette option (directly under this option, left of "Edit"), click Create New Palette. Name it according to the scheme Palette_X. Click Create. A window will prompt you to select a folder. Select the folder "Palettes."
+
+8. Drag the Tileset asset into the empty space in the Tile Palette tab. Unity will prompt you to select a folder again. Once again, select "Palettes."
+
+That's it. If you want to draw with the tiles, select the brush tool; deselect it to stop drawing. Make sure Active Tilemap is set to the correct one.

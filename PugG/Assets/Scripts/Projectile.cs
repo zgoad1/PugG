@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
-     void OnTriggerEnter2D(Collision2D collision)
+     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("damage taken");
         var hit = collision.gameObject;

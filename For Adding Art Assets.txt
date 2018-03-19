@@ -1,5 +1,9 @@
 GUIDELINES
 
+- Prefix sprite names with "Sprite_" and tileset names with "Tileset_"
+
+- Export animations as series of PNG images suffixed with numbers, e.g. anim1.png, anim2.png, anim3.png, ...
+
 - Tiles should be squares in powers of 2. The standard tile size for this project is 32x32.
 
 - Characters should also be in powers of 2, but do not have to be squares. The player is 32x32; human enemies are 32x64.

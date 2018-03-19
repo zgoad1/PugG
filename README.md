@@ -9,13 +9,12 @@
 - other sprites
 - Song 1
 - audio manager
+- score increasing
 
-## Goals for 3/15
+## Goals for 3/19
 ***Programming***
 
 *Save the daytime bit for later. For now, focus on the dream level.*
-- player jumping [in progress by Vincent]
-- food & score increasing [in progress by Vincent]
 - generic enemy AI (follow player if nearby, hurt player)
 - dying & restarting from checkpoint
 - player HP bar
@@ -37,11 +36,11 @@
 
 ***B***
 
-- Ground collisions are detected if the player hits a wall to their left [in progress by Vincent]
+- Player can hang onto walls while in midair
 
 ***C***
 
-- Player movement is all jittery and weird [in progress by Vincent]
+- Score display is jittery when the camera moves
 
 *About bug ranks*
 - *A rank: Causes the game to become completely unplayable*

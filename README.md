@@ -19,7 +19,7 @@
 - generic enemy AI (follow player if nearby, hurt player)
 - dying & restarting from checkpoint
 - player HP bar (Matthew Riviere)
-- obstacles that can hurt the player (just generic spikes or something for now)
+- obstacles that can hurt the player (just generic spikes or something for now) (Matthew Riviere)
 - implement the real art
 
 ***Art***

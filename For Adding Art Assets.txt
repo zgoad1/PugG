@@ -4,8 +4,6 @@ GUIDELINES
 
 - Characters should also be in powers of 2, but do not have to be squares. The player is 32x32; human enemies are 32x64.
 
-- For animated sprites, use GIFs rather than sprite sheets.
-
 - Keep each image at its regular resolution, i.e., one pixel in the image when not zoomed in is one pixel on the screen. Do not scale it up, because the camera will zoom into the image in-game, making the pixels visible and giving the retro effect we're going for.
 
 - Use the player's size (32x32) for reference for other sprites. e.g., a human enemy should not be shorter than the player. Do not make sprites with the intention for them to be scaled up in Unity, because then those pixels will be bigger than others and it will look like we don't understand how pixel games work.
@@ -34,3 +32,5 @@ You can stop here if we don't have a place for these tiles yet. If we do, you ca
 8. Drag the Tileset asset into the empty space in the Tile Palette tab. Unity will prompt you to select a folder again. Once again, select "Palettes."
 
 That's it. If you want to draw with the tiles, select the brush tool; deselect it to stop drawing. Make sure Active Tilemap is set to the correct one.
+
+For animations (sprite sheets), you do something similar to tilesets up until the point with the Grids and Tilemaps, but I have no experience with this.

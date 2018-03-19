@@ -10,6 +10,7 @@
 - Song 1
 - audio manager
 - score increasing
+- title screen
 
 ## Goals for 3/19
 ***Programming***
@@ -36,11 +37,11 @@
 
 ***B***
 
-- Player can hang onto walls while in midair
+- None
 
 ***C***
 
-- Score display is jittery when the camera moves
+- None
 
 *About bug ranks*
 - *A rank: Causes the game to become completely unplayable*

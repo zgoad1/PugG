@@ -18,7 +18,7 @@
 *Save the daytime bit for later. For now, focus on the dream level.*
 - generic enemy AI (follow player if nearby, hurt player)
 - dying & restarting from checkpoint
-- player HP bar
+- player HP bar (Matthew Riviere)
 - obstacles that can hurt the player (just generic spikes or something for now)
 - implement the real art
 

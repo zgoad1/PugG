@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace UnityStandardAssets._2D
@@ -21,7 +22,9 @@ namespace UnityStandardAssets._2D
         private Animator m_Anim;            // Reference to the player's animator component.
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = false;  // For determining which way the player is currently facing.
-        private int count;
+        //private int count;
+
+
 
         private void Awake()
         {
@@ -46,6 +49,12 @@ namespace UnityStandardAssets._2D
                     m_Grounded = true;
             }
             m_Anim.SetBool("onGround", m_Grounded);
+
+            if (gameObject.transform.position.y < -6)
+            {
+                Scene scene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(scene.name);
+            }
 
             // Set the vertical animation
             //m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
@@ -116,19 +125,19 @@ namespace UnityStandardAssets._2D
             transform.localScale = theScale;
         }
         
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.gameObject.CompareTag("Pickup"))
-            {
-                collision.gameObject.SetActive(false);
-                count += 100; 
-                SetCountText();
-            }
-        }
+//        private void OnTriggerEnter2D(Collider2D collision)
+//        {
+//            if (collision.gameObject.CompareTag("Pickup"))
+//            {
+//                collision.gameObject.SetActive(false);
+//                count += 1; 
+//                SetCountText();
+//            }
+//        }
 
-        void SetCountText()
-        {
-            countText.text = "Score: " + count.ToString();
-        }
-    }
+//        void SetCountText()
+//        {
+//            countText.text = "Score: " + count.ToString();
+//        }
+  }
 }

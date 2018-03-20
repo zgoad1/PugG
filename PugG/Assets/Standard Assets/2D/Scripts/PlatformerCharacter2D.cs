@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 
 namespace UnityStandardAssets._2D
 {
@@ -63,32 +64,17 @@ namespace UnityStandardAssets._2D
 
         public void Move(float move, bool crouch, bool jump)
         {
-			/*
-            // If crouching, check to see if the character can stand up
-            if (!crouch && m_Anim.GetBool("Crouch"))
-            {
-                // If the character has a ceiling preventing them from standing up, keep them crouching
-                if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
-                {
-                    crouch = true;
-                }
-            }
-			*/
 
-            // Set whether or not the character is crouching in the animator
-            //m_Anim.SetBool("Crouch", crouch);
-
-            //only control the player if grounded or airControl is turned on
             if (m_Grounded || m_AirControl)
             {
                 // Reduce the speed if crouching by the crouchSpeed multiplier
-                move = (crouch ? move*m_CrouchSpeed : move);
+                move = (crouch ? move * m_CrouchSpeed : move);
 
                 // The Speed animator parameter is set to the absolute value of the horizontal input.
                 m_Anim.SetFloat("velocity", Mathf.Abs(move));
 
                 // Move the character
-                m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed, m_Rigidbody2D.velocity.y);
+                m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
 
                 // If the input is moving the player right and the player is facing left...
                 if (move > 0 && !m_FacingRight)
@@ -96,7 +82,7 @@ namespace UnityStandardAssets._2D
                     // ... flip the player.
                     Flip();
                 }
-                    // Otherwise if the input is moving the player left and the player is facing right...
+                // Otherwise if the input is moving the player left and the player is facing right...
                 else if (move < 0 && m_FacingRight)
                 {
                     // ... flip the player.
@@ -124,20 +110,21 @@ namespace UnityStandardAssets._2D
             theScale.x *= -1;
             transform.localScale = theScale;
         }
-        
-//        private void OnTriggerEnter2D(Collider2D collision)
-//        {
-//            if (collision.gameObject.CompareTag("Pickup"))
-//            {
-//                collision.gameObject.SetActive(false);
-//                count += 1; 
-//                SetCountText();
-//            }
-//        }
 
-//        void SetCountText()
-//        {
-//            countText.text = "Score: " + count.ToString();
-//        }
-  }
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.name == "Speed")
+            {
+                m_MaxSpeed = m_MaxSpeed * 2f;
+                collision.gameObject.SetActive(false);
+                StartCoroutine("waitTime");
+            }
+        }
+
+        IEnumerator waitTime()
+        {
+            yield return new WaitForSeconds(3);
+            m_MaxSpeed = m_MaxSpeed / 2f;
+        }
+    }
 }

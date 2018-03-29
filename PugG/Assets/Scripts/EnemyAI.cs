@@ -7,7 +7,7 @@ public class EnemyAI : MonoBehaviour {
 	private float speed;									// Horizontal movement speed
 	[SerializeField] private float walkSpeed = 0.02f;
 	[SerializeField] private float runSpeed = 0.03f;
-	[SerializeField] private int damage = 10;               // HP to take from player upon hit
+	[SerializeField] private int damage = 20;               // HP to take from player upon hit
 	[SerializeField] private EnemyAIGroundCheck GroundCheckLeft;	// Left ground check, determines whether we can go left
 	[SerializeField] private EnemyAIGroundCheck GroundCheckRight;	// same but right
 	private float waitTime;                                 // How long to wait until the next move
@@ -18,6 +18,7 @@ public class EnemyAI : MonoBehaviour {
 	private PlatformerCharacter2D player;
 	private bool chasing = false;
 	private IEnumerator wait;
+	private Health PlayerHP;
 
 	public bool wandering = false;							// Controls whether the object is moving or not
 	public bool canMove = false;							// True if at least one GroundCheck is hitting the ground
@@ -63,6 +64,7 @@ public class EnemyAI : MonoBehaviour {
 		speed = walkSpeed;
 		sprite = GetComponent<SpriteRenderer>();
 		player = FindObjectOfType<PlatformerCharacter2D>();
+		PlayerHP = player.GetComponent<Health>();
 		SetDirection();
 		SetWaitTime();
 		StartCoroutine("Wait", waitTime);
@@ -91,18 +93,20 @@ public class EnemyAI : MonoBehaviour {
 		}
 
 		if(wandering) {
-			Debug.Log("AI: Moving " + movement.x);
+			//Debug.Log("AI: Moving " + movement.x);
 			transform.position += movement;
 		} else if(chasing) {
 			// follow player
 			SetDirection(pDirec);
+			// Don't pass up the player or else the sprite will turn to the other direction every frame
+			movement.x = pDirec * Mathf.Min(Mathf.Abs(movement.x), Mathf.Abs(player.transform.position.x - transform.position.x));
 			transform.position += movement;
 		}
 	}
 
 	// Wait some amount of time, then change between waiting and wandering; repeat.
 	public IEnumerator Wait(float time) {
-		Debug.Log("AI: Waiting " + time + " seconds");
+		//Debug.Log("AI: Waiting " + time + " seconds");
 		yield return new WaitForSeconds(time);
 		if(canMove) {
 			wandering = !wandering;
@@ -129,5 +133,17 @@ public class EnemyAI : MonoBehaviour {
 		speed = walkSpeed;
 		SetWaitTime();
 		StartCoroutine("Wait", waitTime);
+	}
+
+	void OnTriggerStay2D(Collider2D collision) {
+		var hit = collision.gameObject;
+		PlatformerCharacter2D p = hit.gameObject.GetComponent<PlatformerCharacter2D>();
+		if(p != null) {
+			p.PushForce = new Vector2(20f * (hit.transform.position.x - transform.position.x), Mathf.Min(hit.transform.position.y - transform.position.y, 0.4f));
+			if(PlayerHP != null) {
+				Debug.Log("" + damage + " damage taken");
+				PlayerHP.TakeDamage(damage);
+			}
+		}
 	}
 }

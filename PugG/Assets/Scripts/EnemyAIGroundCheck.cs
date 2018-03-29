@@ -12,7 +12,7 @@ public class EnemyAIGroundCheck : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D c) {
-		Debug.Log("AI Ground Check: Collided with " + c.gameObject + " on layer " + c.gameObject.layer);
+		//Debug.Log("AI Ground Check: Collided with " + c.gameObject + " on layer " + c.gameObject.layer);
 		if(c.gameObject.layer == LayerMask.NameToLayer("Ground")) {
 			onGround = true;
 			parent.canMove = true;

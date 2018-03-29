@@ -12,14 +12,14 @@
 - score increasing
 - title screen
 - HP bar
-- Enemy AI
+- Enemy AI & mechanics
 
 ## Goals for 3/19
 ***Programming***
 
 *Save the daytime bit for later. For now, focus on the dream level.*
-- post-hit grace period (invincibility) [in progress by Zac]
-- dying & restarting from checkpoint
+- Variable height jumping (longer hold = higher jump)
+- restarting from checkpoint
 - obstacles that can hurt the player (just generic spikes or something for now) (Matthew Riviere)
 - implement the real art [in progress by Zac]
 - level layout randomization or semi-randomization
@@ -39,11 +39,11 @@
 
 ***B***
 
-- Sometimes the player is suddenly restarted. Seemingly random.
+- None
 
 ***C***
 
-- None
+- Music starts over when level restarts [in progress by Zac]
 
 *About bug ranks*
 - *A rank: Causes the game to become completely unplayable*

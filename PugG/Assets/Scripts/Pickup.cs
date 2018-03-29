@@ -31,7 +31,7 @@ public class Pickup : MonoBehaviour {
 
         }
         SetScoreText();
-        Debug.Log("Found " + scoreCount + " Pickup Objects!");
+        //Debug.Log("Found " + scoreCount + " Pickup Objects!");
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)

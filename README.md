@@ -11,16 +11,18 @@
 - audio manager
 - score increasing
 - title screen
+- HP bar
+- Enemy AI
 
 ## Goals for 3/19
 ***Programming***
 
 *Save the daytime bit for later. For now, focus on the dream level.*
-- generic enemy AI (follow player if nearby, hurt player)
+- post-hit grace period (invincibility) [in progress by Zac]
 - dying & restarting from checkpoint
-- player HP bar (Matthew Riviere)
 - obstacles that can hurt the player (just generic spikes or something for now) (Matthew Riviere)
-- implement the real art
+- implement the real art [in progress by Zac]
+- level layout randomization or semi-randomization
 
 ***Art***
 - tile sets for house (background & foreground) [in progress by Sam]
@@ -37,7 +39,7 @@
 
 ***B***
 
-- None
+- Sometimes the player is suddenly restarted. Seemingly random.
 
 ***C***
 

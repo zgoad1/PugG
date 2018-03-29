@@ -8,7 +8,8 @@ namespace UnityStandardAssets._2D
 {
     public class PlatformerCharacter2D : MonoBehaviour
     {
-        [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
+		[SerializeField] private float m_RegMaxSpeed = 10f, m_MaxSpeed = 10f;	// The fastest the player can travel in the x axis.
+		[SerializeField] private float m_PowerupSpeed = 20f;                // Horizontal speed when using a speed powerup
         [SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
         [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
         [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
@@ -115,7 +116,7 @@ namespace UnityStandardAssets._2D
         {
             if (collision.gameObject.name == "Speed")
             {
-                m_MaxSpeed = m_MaxSpeed * 2f;
+                m_MaxSpeed = m_PowerupSpeed;
                 collision.gameObject.SetActive(false);
                 StartCoroutine("waitTime");
             }
@@ -124,7 +125,7 @@ namespace UnityStandardAssets._2D
         IEnumerator waitTime()
         {
             yield return new WaitForSeconds(3);
-            m_MaxSpeed = m_MaxSpeed / 2f;
+            m_MaxSpeed = m_RegMaxSpeed;
         }
     }
 }

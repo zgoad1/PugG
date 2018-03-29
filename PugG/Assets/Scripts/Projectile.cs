@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
+	private Health PlayerHP;
+	[SerializeField] private int damage = 10;
+
+	void Start() {
+		PlayerHP = GetComponent<Health>();
+	}
+
      void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("damage taken");
+        Debug.Log("" + damage + " damage taken");
         var hit = collision.gameObject;
-        var health = hit.GetComponent<Health>();
-        if (health != null)
+        if (PlayerHP != null)
         {
-            health.TakeDamage(10);
+            PlayerHP.TakeDamage(damage);
         }
 
         Destroy(gameObject);

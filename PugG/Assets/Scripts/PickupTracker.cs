@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Pickup : MonoBehaviour {
+public class PickupTracker : MonoBehaviour {
     
     public Text scoreText;
 
@@ -24,12 +24,14 @@ public class Pickup : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		/*
         if (score >= scoreCount)
         {
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
 
         }
+		*/
         SetScoreText();
         //Debug.Log("Found " + scoreCount + " Pickup Objects!");
 	}

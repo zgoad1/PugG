@@ -13,6 +13,10 @@ namespace UnityStandardAssets._2D {
 		[SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
 		[SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
 
+		// For handling level ending
+		private Health PlayerHealth;
+		private GameObject EndScreen;
+
 		public Text countText;
 		private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
 		const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
@@ -33,6 +37,10 @@ namespace UnityStandardAssets._2D {
 			m_CeilingCheck = transform.Find("CeilingCheck");
 			m_Anim = GetComponent<Animator>();
 			m_Rigidbody2D = GetComponent<Rigidbody2D>();
+
+			// Level ending variables
+			PlayerHealth = FindObjectOfType<Health>();
+			EndScreen = GameObject.Find("End Screen Root").transform.Find("End Screen").gameObject;	// Only way to get an inactive object is to parent a Transform and use its Find() method
 		}
 
 
@@ -109,6 +117,16 @@ namespace UnityStandardAssets._2D {
 				m_MaxSpeed = m_PowerupSpeed;
 				collision.gameObject.SetActive(false);
 				StartCoroutine("waitTime");
+			} else if(collision.gameObject.tag == "Goal") {
+				GetComponent<PlatformerCharacter2D>().enabled = false;
+				GetComponent<Platformer2DUserControl>().enabled = false;
+				m_Rigidbody2D.velocity = new Vector2(0f, 0f);
+				m_Rigidbody2D.gravityScale = 0f;
+				m_Anim.SetBool("onGround", false);
+				m_Anim.SetFloat("velocity", 0f);
+				PlayerHealth.invincible = true;
+				//Instantiate(FakePlayer, pos);
+				EndScreen.SetActive(true);
 			}
 		}
 

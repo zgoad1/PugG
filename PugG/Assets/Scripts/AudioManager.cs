@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
 
-    public static int number;
+    public static int number = 0;
     public static AudioManager instance;
 
     public Sound[] sounds;
@@ -13,11 +13,10 @@ public class AudioManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-
-        /*
+		
         index = number;
         number++;
-        if(instance == null) {
+        if(number <= 1) {
             instance = this;
             Debug.Log("Creating audio manager #" + index);
         } else {
@@ -25,9 +24,8 @@ public class AudioManager : MonoBehaviour {
             Debug.Log("Destroying extra audio manager #" + index);
             return;
         }
-        */
 
-        //DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
 
         foreach(Sound s in sounds) {
             s.source = gameObject.AddComponent<AudioSource>();

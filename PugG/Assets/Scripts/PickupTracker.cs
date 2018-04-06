@@ -7,13 +7,11 @@ using UnityEngine.UI;
 public class PickupTracker : MonoBehaviour {
     
     public Text scoreText;
+	public int score;
 
-    private int score;
     private int scoreCount;
 
-
     List<GameObject> pickups = new List<GameObject>();
-
 
     // Use this for initialization
     void Start () {

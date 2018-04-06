@@ -141,7 +141,6 @@ public class EnemyAI : MonoBehaviour {
 		if(p != null) {
 			p.PushForce = new Vector2(20f * (hit.transform.position.x - transform.position.x), Mathf.Min(hit.transform.position.y - transform.position.y, 0.4f));
 			if(PlayerHP != null) {
-				Debug.Log("" + damage + " damage taken");
 				PlayerHP.TakeDamage(damage);
 			}
 		}

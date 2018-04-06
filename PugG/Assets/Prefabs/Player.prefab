@@ -178,6 +178,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   countText: {fileID: 0}
+  PushForce: {x: 0, y: 0}
 --- !u!114 &114168303496871858
 MonoBehaviour:
   m_ObjectHideFlags: 1

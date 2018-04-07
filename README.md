@@ -30,7 +30,7 @@
 
 ***B***
 
-- None
+- Pressing Jump while phasing through a platform from below will result in a huge jump
 
 ***C***
 

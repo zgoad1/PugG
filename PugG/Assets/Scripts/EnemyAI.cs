@@ -20,8 +20,8 @@ public class EnemyAI : MonoBehaviour {
 	private IEnumerator wait;
 	private Health PlayerHP;
 
-	public bool wandering = false;							// Controls whether the object is moving or not
-	public bool canMove = false;							// True if at least one GroundCheck is hitting the ground
+	[HideInInspector] public bool wandering = false;							// Controls whether the object is moving or not
+	[HideInInspector] public bool canMove = false;							// True if at least one GroundCheck is hitting the ground
 	public float sightRadius = 2.5f;						// Max distance the player can be without chasing them
 
 	private void SetWaitTime() {

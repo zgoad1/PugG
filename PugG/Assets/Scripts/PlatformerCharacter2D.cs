@@ -27,7 +27,8 @@ namespace UnityStandardAssets._2D {
 		private Rigidbody2D m_Rigidbody2D;
 		private bool m_FacingRight = false;  // For determining which way the player is currently facing.
 		public Vector2 PushForce = Vector2.zero;	// Set by other objects to push the player in some direction
-											 //private int count;
+									 //private int count;
+		public Vector3 respawnPoint;	     // For determining where the player respawns after death.
 
 
 
@@ -37,6 +38,7 @@ namespace UnityStandardAssets._2D {
 			m_CeilingCheck = transform.Find("CeilingCheck");
 			m_Anim = GetComponent<Animator>();
 			m_Rigidbody2D = GetComponent<Rigidbody2D>();
+			respawnPoint = transform.position;
 
 			// Level ending variables
 			PlayerHealth = FindObjectOfType<Health>();

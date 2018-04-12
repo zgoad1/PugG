@@ -12,6 +12,10 @@ namespace UnityStandardAssets._2D
             {
                 SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
             }
+            if (other.tag == "Checkpoint")
+            {
+                respawnPoint = other.transform.position;
+            }
         }
     }
 }

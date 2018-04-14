@@ -6,16 +6,13 @@ namespace UnityStandardAssets._2D
 {
     public class Restarter : MonoBehaviour
     {
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.tag == "Player")
-            {
-                SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
-            }
-            if (other.tag == "Checkpoint")
-            {
-                respawnPoint = other.transform.position;
-            }
-        }
+		private static PlatformerCharacter2D Player = FindObjectOfType<PlatformerCharacter2D>();
+
+		public static void Restart(bool fromCheckpoint) {
+			if(!fromCheckpoint)
+				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			else
+				Player.transform.position = Player.respawnPoint;
+		}
     }
 }

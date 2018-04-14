@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PickupTracker : MonoBehaviour {
     
     public Text scoreText;
-	public int score;
+	public static int score;
 
     private int scoreCount;
 

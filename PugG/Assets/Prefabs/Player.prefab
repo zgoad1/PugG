@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 58096419944182414}
   - component: {fileID: 114451073298686464}
   - component: {fileID: 114594181464250760}
+  - component: {fileID: 114211307456760004}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -179,6 +180,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   countText: {fileID: 0}
   PushForce: {x: 0, y: 0}
+  respawnPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &114168303496871858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -188,6 +190,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3d7b34a3bb2d4e4b926e7e729d3d410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114211307456760004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1480195311013614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678559d1a2a8d6143859fb057bb3d865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114451073298686464
@@ -202,6 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
+  score: 0
 --- !u!114 &114594181464250760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -214,6 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gracePeriod: 1
+  invincible: 0
   currentHealth: 100
   healthBar: {fileID: 0}
 --- !u!212 &212755104255246980
@@ -247,9 +262,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1406483231
+  m_SortingLayer: 1
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 47db361a25b043342a8550c81280d100, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

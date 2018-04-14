@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour {
 
+	[SerializeField] private ParticleSystem ps;
+
+	private void Start() {
+		ps.Stop();
+	}
+
+	public void DoParticles() {
+		ps.Play();
+	}
+
+	/*
+
 	public Sprite fireHydrant;
 	private SpriteRenderer checkpointSpriteRenderer;
 	public bool checkpointReached;
@@ -20,11 +32,11 @@ public class Checkpoint : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if other.tag = "PlatformerCharacter2D"
+		if(other.tag == "Player")
 		{
 			checkpointSpriteRenderer.sprite = fireHydrant;
 			checkpointReached = true;
 		}
 	}
-				
+		*/		
 }

@@ -5,6 +5,6 @@ public class UIScoreText : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GetComponent<Text>().text = "" + FindObjectOfType<PickupTracker>().score;
+		GetComponent<Text>().text = "" + PickupTracker.score;
 	}
 }

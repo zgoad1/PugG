@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets._2D;
 
 public class UIEndScreen : MonoBehaviour {
 	
@@ -8,7 +9,7 @@ public class UIEndScreen : MonoBehaviour {
 		if(Input.GetButtonDown("Interact") && GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("EndScreen_Stay")) {
 			Debug.Log("Loading daytime scene");
 			// Load the daytime scene\
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			Restarter.Restart(false);
 		}
 	}
 }

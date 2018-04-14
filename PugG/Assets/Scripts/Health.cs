@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets._2D;
 
 public class Health : MonoBehaviour {
 
+	private PlatformerCharacter2D Player;
 	[SerializeField] private float gracePeriod = 1f;	// grace period after getting hit in seconds
 	private SpriteRenderer sprite;						// sprite to flash when invincible
 
@@ -14,6 +16,7 @@ public class Health : MonoBehaviour {
 
 	private void Start() {
 		sprite = GetComponent<SpriteRenderer>();
+		Player = FindObjectOfType<PlatformerCharacter2D>();
 	}
 
 	public void TakeDamage(int amount) {
@@ -21,9 +24,7 @@ public class Health : MonoBehaviour {
 			StartCoroutine("GracePeriod", gracePeriod);
 			currentHealth -= amount;
 			if(currentHealth <= 0) {
-				currentHealth = 0;
-				Scene scene = SceneManager.GetActiveScene();
-				SceneManager.LoadScene(scene.name);
+				Player.Die();
 			}
 
 			healthBar.sizeDelta = new Vector2(currentHealth, healthBar.sizeDelta.y);

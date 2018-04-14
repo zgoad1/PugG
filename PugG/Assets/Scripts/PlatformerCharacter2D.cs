@@ -59,8 +59,7 @@ namespace UnityStandardAssets._2D {
 			m_Anim.SetBool("onGround", m_Grounded);
 
 			if(gameObject.transform.position.y < -6) {
-				Scene scene = SceneManager.GetActiveScene();
-				SceneManager.LoadScene(scene.name);
+				Die();
 			}
 
 			// Set the vertical animation
@@ -132,7 +131,25 @@ namespace UnityStandardAssets._2D {
 			}
 		}
 
-		IEnumerator waitTime() {
+		void OnTriggerStay2D(Collider2D other) {
+			if(other.tag == "Checkpoint") {
+				if(Input.GetButtonDown("Interact")) {
+					respawnPoint = other.transform.position;
+					other.GetComponent<Checkpoint>().DoParticles();
+					// sound effect
+				}
+			}
+		}
+
+		public void Die() {
+			PickupTracker.score = (int)Mathf.Max(0f, PickupTracker.score - 10);		// subtract 10 from score
+			PlayerHealth.currentHealth = Health.maxHealth;							// set back to full health
+			Restarter.Restart(true);                                                // go back to checkpoint
+			PlayerHealth.TakeDamage(0);												// take 0 damage so invincibility starts
+		}
+			
+
+			IEnumerator waitTime() {
 			yield return new WaitForSeconds(3);
 			m_MaxSpeed = m_RegMaxSpeed;
 		}

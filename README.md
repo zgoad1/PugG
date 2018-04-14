@@ -1,6 +1,6 @@
 # Pug G
 
-## Goals for 4/12
+## Goals for 4/19
 ***Programming***
 
 *Save the daytime bit for later. For now, focus on the dream level.*

@@ -8,7 +8,7 @@
 - daytime level / Pug Point shop [in progress by Vincent]
 - Bath minigame implementation [in progress by Vincent]
 - finalized level design for level 1 [everyone should work together on this]
-- Rough draft levels 2 and 3
+- Rough draft levels 2 and 3[in progress by Matthew]
 - implement the real art [in progress by Zac]
 
 - (level layout randomization or semi-randomization)

@@ -4,19 +4,22 @@
 ***Programming***
 
 *Save the daytime bit for later. For now, focus on the dream level.*
-- Variable height jumping (longer hold = higher jump) 
+- Pug Point assignment by score at level end
 - daytime level / Pug Point shop [in progress by Vincent]
 - Bath minigame implementation [in progress by Vincent]
 - finalized level design for level 1 [everyone should work together on this]
-- Rough draft levels 2 and 3[in progress by Matthew]
-- Powerups [in progress by Zac]
+- Rough draft levels 2 and 3 [in progress by Matthew]
+- Powerups & pickups [in progress by Zac]
 - implement the real art [in progress by Zac]
 
 - (level layout randomization or semi-randomization)
 
 ***Art***
-- Ground tiles (carpet etc.) [in progress by Sam]
-- random items to put on shelf platforms as decoration (vases, flowers, cups, etc.)
+- Various polish
+- Title screen music
+- Daytime level music
+- (Bath minigame music)
+- (Level complete jingle)
 
 *( ) means optional goal, may become mandatory for next meeting*
 

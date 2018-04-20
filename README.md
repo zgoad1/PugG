@@ -27,8 +27,6 @@
 ## Bugs
 
 ***A***
-- death plane does not kill the player
-
 - None
 
 ***B***

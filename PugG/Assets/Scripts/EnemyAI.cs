@@ -9,7 +9,8 @@ public class EnemyAI : MonoBehaviour {
 	[SerializeField] private float runSpeed = 0.03f;
 	[SerializeField] private int damage = 20;               // HP to take from player upon hit
 	[SerializeField] private EnemyAIGroundCheck GroundCheckLeft;	// Left ground check, determines whether we can go left
-	[SerializeField] private EnemyAIGroundCheck GroundCheckRight;	// same but right
+	[SerializeField] private EnemyAIGroundCheck GroundCheckRight;   // same but right
+	[SerializeField] private Animator Anim;
 	private float waitTime;                                 // How long to wait until the next move
 	private float wanderTime;                               // How long to move
 	private int direction = 1;							    // Direction of movement (-1 for left, 1 for right)
@@ -45,9 +46,9 @@ public class EnemyAI : MonoBehaviour {
 	private void SetDirection(int d) {
 		direction = d;
 		if(direction == -1) {
-			sprite.flipX = false;
-		} else {
 			sprite.flipX = true;
+		} else {
+			sprite.flipX = false;
 		}
 		movement.x = speed * direction;
 	}
@@ -65,6 +66,7 @@ public class EnemyAI : MonoBehaviour {
 		sprite = GetComponent<SpriteRenderer>();
 		player = FindObjectOfType<PlatformerCharacter2D>();
 		PlayerHP = player.GetComponent<Health>();
+		Anim = GetComponent<Animator>();
 		SetDirection();
 		SetWaitTime();
 		StartCoroutine("Wait", waitTime);
@@ -84,12 +86,14 @@ public class EnemyAI : MonoBehaviour {
 			StopCoroutine("Wait");
 			chasing = true;
 			speed = runSpeed;
+			Anim.SetBool("moving", true);
 		} else if(chasing) {
 			// Else go back to wandering
 			chasing = false;
 			speed = walkSpeed;
 			SetWaitTime();
 			StartCoroutine("Wait", waitTime);
+			Anim.SetBool("moving", false);
 		}
 
 		if(wandering) {
@@ -114,13 +118,16 @@ public class EnemyAI : MonoBehaviour {
 				SetDirection();
 				SetWanderTime();
 				StartCoroutine("Wait", wanderTime);
+				Anim.SetBool("moving", true);
 			} else {
 				SetWaitTime();
 				StartCoroutine("Wait", waitTime);
+				Anim.SetBool("moving", false);
 			}
 		} else {
 			wandering = false;
 			Debug.Log("AI: Can't move");
+			Anim.SetBool("moving", false);
 		}
 	}
 
@@ -133,6 +140,7 @@ public class EnemyAI : MonoBehaviour {
 		speed = walkSpeed;
 		SetWaitTime();
 		StartCoroutine("Wait", waitTime);
+		Anim.SetBool("moving", false);
 	}
 
 	void OnTriggerStay2D(Collider2D collision) {

@@ -60,6 +60,7 @@ namespace UnityStandardAssets._2D {
 
 			if(gameObject.transform.position.y < -6) {
 				Die();
+				Debug.LogWarning("U DYED");
 			}
 
 			// Set the vertical animation

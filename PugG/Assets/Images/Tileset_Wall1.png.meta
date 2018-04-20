@@ -1,22 +1,15 @@
 fileFormatVersion: 2
-guid: ed64e3578b3788a4c8f573c006f29e3e
-timeCreated: 1521397493
+guid: ed824bb24bf502a42947f0851218d837
+timeCreated: 1524242654
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Vet_0
-    21300002: Vet_1
-    21300004: Vet_2
-    21300006: Vet_3
-    21300008: Vet_4
-    21300010: Vet_5
-    21300012: Vet_6
-    21300014: Vet_7
-    21300016: Vet_8
-    21300018: Vet_9
-    21300020: Vet_10
-    21300022: Vet_11
-    21300024: Vet_12
+    21300000: Tileset_Wall1_0
+    21300002: Tileset_Wall1_1
+    21300004: Tileset_Wall1_2
+    21300006: Tileset_Wall1_3
+    21300008: Tileset_Wall1_4
+    21300010: Tileset_Wall1_5
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -59,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -93,13 +86,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Vet_0
+      name: Tileset_Wall1_0
       rect:
         serializedVersion: 2
-        x: 128
-        y: 768
-        width: 128
-        height: 128
+        x: 0
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -107,13 +100,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Vet_1
+      name: Tileset_Wall1_1
       rect:
         serializedVersion: 2
-        x: 640
-        y: 768
-        width: 128
-        height: 128
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,13 +114,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Vet_2
+      name: Tileset_Wall1_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 640
-        width: 128
-        height: 128
+        x: 64
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,125 +128,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Vet_3
+      name: Tileset_Wall1_3
       rect:
         serializedVersion: 2
-        x: 640
-        y: 640
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Vet_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 512
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Vet_5
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 512
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Vet_6
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 512
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Vet_7
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Vet_8
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Vet_9
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Vet_10
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 128
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Vet_11
-      rect:
-        serializedVersion: 2
-        x: 128
+        x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,13 +142,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Vet_12
+      name: Tileset_Wall1_4
       rect:
         serializedVersion: 2
-        x: 640
+        x: 32
         y: 0
-        width: 128
-        height: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tileset_Wall1_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

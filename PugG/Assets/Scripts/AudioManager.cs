@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour {
     public static AudioManager instance;
 
     public Sound[] sounds;
+	private static Sound CurrentSong;
     private int index;
 
 	// Use this for initialization
@@ -40,6 +41,10 @@ public class AudioManager : MonoBehaviour {
         Sound sound = Array.Find(sounds, s => s.name == name);
         Debug.Log("Playing sound " + sound.name + " at volume " + sound.volume + ", source: " + sound.source.ToString());
         sound.source.Play();
+		if(sound.song) {
+			if(CurrentSong != null) FadeOut(CurrentSong.name);
+			CurrentSong = sound;
+		}
     }
 
     public void Stop(string name) {
@@ -55,7 +60,20 @@ public class AudioManager : MonoBehaviour {
 		}
 	}
 
+	IEnumerator FadeOutTrack(string name) {
+		Sound sound = Array.Find(sounds, s => s.name == name);
+		for(float i = 0; i < 30f; i++) {
+			sound.source.volume = (30f - i) / 30f * sound.volume;
+			yield return null;
+		}
+		Stop(name);
+	}
+
 	public void FadeIn(string name) {
 		StartCoroutine("FadeInTrack", name);
+	}
+
+	public void FadeOut(string name) {
+		StartCoroutine("FadeOutTrack", name);
 	}
 }

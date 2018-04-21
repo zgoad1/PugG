@@ -10,4 +10,8 @@ public class LoadSceneOnClick : MonoBehaviour
         SceneManager.LoadScene(sceneIndex);
 		Debug.Log("Loading scene, index #" + sceneIndex);
     }
+
+	public void LoadByName(string name) {
+		SceneManager.LoadScene(name);
+	}
 }

@@ -9,5 +9,8 @@ EditorBuildSettings:
     path: Assets/_Scenes/Title.unity
     guid: c403a61083277ca4495f476627e77b86
   - enabled: 1
-    path: Assets/_Scenes/Scene1.unity
+    path: Assets/_Scenes/Daytime.unity
+    guid: 179c1d092131d3c43aeb8ae5b605c942
+  - enabled: 1
+    path: Assets/_Scenes/Level1.unity
     guid: 514e0b65f8d697a438f39dab85de31f3

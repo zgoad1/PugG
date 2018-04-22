@@ -38,13 +38,9 @@ public class Platformer2DUserControl : MonoBehaviour {
 		}
 		m_Character.canOdor = false;
 		m_Character.odoring = true;
-		for(int i = 0; i < 60 * 5; i++) {
-			yield return null;
-		}
+		yield return new WaitForSeconds(5);
 		m_Character.odoring = false;
-		for(int i = 0; i < 60 * 5; i++) {
-			yield return null;
-		}
+		yield return new WaitForSeconds(5);
 		m_Character.canOdor = true;
 		foreach(ParticleSystem p in parts) {
 			p.gameObject.SetActive(false);

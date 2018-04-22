@@ -79,9 +79,9 @@ public class EnemyAI : MonoBehaviour {
 		float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
 		int pDirec = (int)Mathf.Sign(player.transform.position.x - transform.position.x);
 		// bool canSee: The player is close enough, we won't fall into a pit, and we're facing them or already chasing them
-		bool canSee = Mathf.Abs(distanceToPlayer) < sightRadius && GroundCheck(pDirec) && (direction > 0 && pDirec > 0 || direction < 0 && pDirec < 0 || pDirec == 0 || chasing);
+		bool canSee = Mathf.Abs(distanceToPlayer) < sightRadius && GroundCheck(pDirec) && (direction > 0 && pDirec > 0 || direction < 0 && pDirec < 0 || pDirec == 0 || chasing || player.odoring && GroundCheck(-pDirec));
 		if(canSee) {
-			// If we can, start chasing them
+			// If we can, start chasing them (or if we can smell them, start running away)
 			wandering = false;
 			StopCoroutine("Wait");
 			chasing = true;
@@ -97,7 +97,7 @@ public class EnemyAI : MonoBehaviour {
 		}
 
 		if(wandering) {
-			//Debug.Log("AI: Moving " + movement.x);
+			//Debug.Log("AI: Wandering " + movement.x);
 			transform.position += movement;
 		} else if(chasing) {
 			if(!player.odoring) {
@@ -106,10 +106,12 @@ public class EnemyAI : MonoBehaviour {
 				// Don't pass up the player or else the sprite will turn to the other direction every frame
 				movement.x = pDirec * Mathf.Min(Mathf.Abs(movement.x), Mathf.Abs(player.transform.position.x - transform.position.x));
 				transform.position += movement;
+				//Debug.Log("AI: Chasing " + movement.x);
 			} else {
 				// run from player
 				SetDirection(-pDirec);
 				transform.position += movement;
+				//Debug.Log("AI: Running " + movement.x);
 			}
 		}
 	}
@@ -118,7 +120,7 @@ public class EnemyAI : MonoBehaviour {
 	public IEnumerator Wait(float time) {
 		//Debug.Log("AI: Waiting " + time + " seconds");
 		yield return new WaitForSeconds(time);
-		if(canMove) {
+		if(canMove && !player.odoring) {
 			wandering = !wandering;
 			if(wandering) {
 				SetDirection();
@@ -130,6 +132,8 @@ public class EnemyAI : MonoBehaviour {
 				StartCoroutine("Wait", waitTime);
 				Anim.SetBool("moving", false);
 			}
+		} else if(player.odoring) {
+			StartCoroutine("Wait", 3f);
 		} else {
 			wandering = false;
 			Debug.Log("AI: Can't move");

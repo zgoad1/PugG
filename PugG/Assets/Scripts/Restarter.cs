@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace UnityStandardAssets._2D {
+//namespace UnityStandardAssets._2D {
 	public class Restarter : MonoBehaviour {
 		private static PlatformerCharacter2D Player;
 
@@ -14,4 +14,4 @@ namespace UnityStandardAssets._2D {
 				Player.transform.position = Player.respawnPoint;
 		}
 	}
-}
+//}

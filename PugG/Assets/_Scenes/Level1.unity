@@ -4273,30 +4273,48 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114594181464250760, guid: c92ca792b2d4e1e4980791535e5f00e8,
-        type: 2}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 1777088621}
-    - target: {fileID: 114451073298686464, guid: c92ca792b2d4e1e4980791535e5f00e8,
-        type: 2}
-      propertyPath: scoreText
-      value: 
-      objectReference: {fileID: 1813891900}
     - target: {fileID: 114046891775702742, guid: c92ca792b2d4e1e4980791535e5f00e8,
         type: 2}
       propertyPath: countText
       value: 
       objectReference: {fileID: 1813891900}
-    - target: {fileID: 212755104255246980, guid: c92ca792b2d4e1e4980791535e5f00e8,
+    - target: {fileID: 114451073298686464, guid: c92ca792b2d4e1e4980791535e5f00e8,
         type: 2}
-      propertyPath: m_SortingLayerID
-      value: -1406483231
-      objectReference: {fileID: 0}
-    - target: {fileID: 212755104255246980, guid: c92ca792b2d4e1e4980791535e5f00e8,
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1813891900}
+    - target: {fileID: 114594181464250760, guid: c92ca792b2d4e1e4980791535e5f00e8,
         type: 2}
-      propertyPath: m_SortingLayer
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1777088621}
+    - target: {fileID: 1071291847021076, guid: c92ca792b2d4e1e4980791535e5f00e8, type: 2}
+      propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676418132672498, guid: c92ca792b2d4e1e4980791535e5f00e8, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198233657135088550, guid: c92ca792b2d4e1e4980791535e5f00e8,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198233657135088550, guid: c92ca792b2d4e1e4980791535e5f00e8,
+        type: 2}
+      propertyPath: randomSeed
+      value: -467732982
+      objectReference: {fileID: 0}
+    - target: {fileID: 198233657135088550, guid: c92ca792b2d4e1e4980791535e5f00e8,
+        type: 2}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198233657135088550, guid: c92ca792b2d4e1e4980791535e5f00e8,
+        type: 2}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c92ca792b2d4e1e4980791535e5f00e8, type: 2}

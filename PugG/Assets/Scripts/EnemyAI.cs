@@ -100,11 +100,17 @@ public class EnemyAI : MonoBehaviour {
 			//Debug.Log("AI: Moving " + movement.x);
 			transform.position += movement;
 		} else if(chasing) {
-			// follow player
-			SetDirection(pDirec);
-			// Don't pass up the player or else the sprite will turn to the other direction every frame
-			movement.x = pDirec * Mathf.Min(Mathf.Abs(movement.x), Mathf.Abs(player.transform.position.x - transform.position.x));
-			transform.position += movement;
+			if(!player.odoring) {
+				// follow player
+				SetDirection(pDirec);
+				// Don't pass up the player or else the sprite will turn to the other direction every frame
+				movement.x = pDirec * Mathf.Min(Mathf.Abs(movement.x), Mathf.Abs(player.transform.position.x - transform.position.x));
+				transform.position += movement;
+			} else {
+				// run from player
+				SetDirection(-pDirec);
+				transform.position += movement;
+			}
 		}
 	}
 
@@ -147,7 +153,7 @@ public class EnemyAI : MonoBehaviour {
 		var hit = collision.gameObject;
 		PlatformerCharacter2D p = hit.gameObject.GetComponent<PlatformerCharacter2D>();
 		if(p != null) {
-			p.PushForce = new Vector2(20f * (hit.transform.position.x - transform.position.x), Mathf.Min(hit.transform.position.y - transform.position.y, 0.4f));
+			p.PushForce = new Vector2(10f * (hit.transform.position.x - transform.position.x), Mathf.Min(hit.transform.position.y - transform.position.y, 0.4f));
 			if(PlayerHP != null) {
 				PlayerHP.TakeDamage(damage);
 			}

@@ -1,23 +1,18 @@
 # Pug G
 
-## Goals for 4/19
+## Goals for 4/23
 ***Programming***
 
-*Save the daytime bit for later. For now, focus on the dream level.*
 - Pug Point assignment by score at level end
-- daytime level / Pug Point shop [in progress by Vincent]
+- daytime level / Pug Point shop [in progress by Zac]
 - Bath minigame implementation [in progress by Vincent]
 - finalized level design for level 1 [everyone should work together on this]
-- Rough draft levels 2 and 3 [in progress by Matthew]
+- Rough draft levels 2 and 3 [in progress by Matthew and Aaron]
 - Powerups & pickups [in progress by Zac]
 - implement the real art [in progress by Zac]
 
-- (level layout randomization or semi-randomization)
-
 ***Art***
 - Various polish
-- Title screen music
-- Daytime level music
 - (Bath minigame music)
 - (Level complete jingle)
 
@@ -63,3 +58,7 @@
 - platform mechanics
 - timer
 - checkpoints
+- Title theme
+- Daytime theme
+- powerups
+- level 1

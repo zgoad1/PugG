@@ -34,6 +34,7 @@
 - The timer runs down and can restart you in the Level Complete screen
 - The time remaining displayed on the Level Complete screen is not always correct (just saw 7:29)
 - Pressing Jump while phasing through a platform from below will result in a huge jump
+- Enemies' ground check colliders act erratically unless they're placed directly under platform colliders as in Level 1 (extremely weird)
 
 ***C***
 

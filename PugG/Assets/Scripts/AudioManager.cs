@@ -20,7 +20,7 @@ public class AudioManager : MonoBehaviour {
         number++;
         if(number <= 1) {
             instance = this;
-            Debug.Log("Creating audio manager #" + index);
+            //Debug.Log("Creating audio manager #" + index);
 			
 			DontDestroyOnLoad(gameObject);
 
@@ -30,7 +30,7 @@ public class AudioManager : MonoBehaviour {
 				s.source.volume = s.volume;
 				s.source.pitch = s.pitch;
 				s.source.loop = s.loop;
-				Debug.Log("Setting source of sound " + s.name + " to " + s.source.ToString());
+				//Debug.Log("Setting source of sound " + s.name + " to " + s.source.ToString());
 			}
 		} else {
             Destroy(gameObject);
@@ -42,7 +42,7 @@ public class AudioManager : MonoBehaviour {
     public void Play(string name) {
 		if(CurrentSong == null || name != CurrentSong.name) {
 			Sound sound = Array.Find(sounds, s => s.name == name);
-			Debug.Log("Playing sound " + sound.name + " at volume " + sound.volume + ", source: " + sound.source.ToString());
+			//Debug.Log("Playing sound " + sound.name + " at volume " + sound.volume + ", source: " + sound.source.ToString());
 			sound.source.volume = sound.volume;
 			sound.source.Play();
 			if(sound.song) {
@@ -72,7 +72,7 @@ public class AudioManager : MonoBehaviour {
 			yield return null;
 		}
 		Stop(name);
-		Debug.Log("Faded out " + name);
+		//Debug.Log("Faded out " + name);
 	}
 
 	public void FadeIn(string name) {

@@ -4917,6 +4917,7 @@ GameObject:
   - component: {fileID: 557231867}
   - component: {fileID: 557231869}
   - component: {fileID: 557231868}
+  - component: {fileID: 557231870}
   m_Layer: 0
   m_Name: Frisbee
   m_TagString: Untagged
@@ -5018,6 +5019,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ec237a5ede6514eb7b5b6c07d0e7bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &557231870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 557231865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c068fe59e9377b45bb5ba964dea3578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0.1
+  period: 2
+  phaseShift: 0
 --- !u!1 &620665867
 GameObject:
   m_ObjectHideFlags: 0
@@ -23216,6 +23231,7 @@ GameObject:
   - component: {fileID: 1585149616}
   - component: {fileID: 1585149618}
   - component: {fileID: 1585149617}
+  - component: {fileID: 1585149619}
   m_Layer: 0
   m_Name: TennisBall
   m_TagString: Untagged
@@ -23317,6 +23333,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.78125, y: 0.78125}
   m_EdgeRadius: 0
+--- !u!114 &1585149619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1585149614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c068fe59e9377b45bb5ba964dea3578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0.1
+  period: 2
+  phaseShift: 0
 --- !u!1 &1643197984
 GameObject:
   m_ObjectHideFlags: 0
@@ -23327,6 +23357,7 @@ GameObject:
   - component: {fileID: 1643197985}
   - component: {fileID: 1643197986}
   - component: {fileID: 1643197987}
+  - component: {fileID: 1643197988}
   m_Layer: 0
   m_Name: Soap
   m_TagString: Soap
@@ -23416,6 +23447,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.78125, y: 0.7264719}
   m_EdgeRadius: 0
+--- !u!114 &1643197988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1643197984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c068fe59e9377b45bb5ba964dea3578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0.1
+  period: 2
+  phaseShift: 0
 --- !u!1 &1690947260
 GameObject:
   m_ObjectHideFlags: 0

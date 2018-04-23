@@ -30,7 +30,7 @@ public class PlatformerCharacter2D : MonoBehaviour {
 	[SerializeField] private Text FrisbeeUses;
 	[SerializeField] private Text TennisUses;
 	[SerializeField] private Text PugPoints;
-	public int reward = 0;				// Amount of Pug Points to award at the end of the level
+	[HideInInspector] public int reward = 0;				// Amount of Pug Points to award at the end of the level
 
 	// Powerups
 	private bool puAirJump = true;          // Whether the player has this powerup

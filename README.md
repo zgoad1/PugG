@@ -3,7 +3,6 @@
 ## Goals for 4/23
 ***Programming***
 
-- Bath minigame implementation [in progress by Vincent]
 - Finish design of levels 2 and 3 [in progress]
 - implement the real art [in progress by Zac]
 

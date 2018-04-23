@@ -331,11 +331,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4376699867779902, guid: 9bdf68cc6b1c39246bd8e7f9e68cb09c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 91.03
+      value: 92.488495
       objectReference: {fileID: 0}
     - target: {fileID: 4376699867779902, guid: 9bdf68cc6b1c39246bd8e7f9e68cb09c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 13.94
+      value: 13.843372
       objectReference: {fileID: 0}
     - target: {fileID: 4376699867779902, guid: 9bdf68cc6b1c39246bd8e7f9e68cb09c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1327,7 +1327,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4408766629324058, guid: e0c5d780dad533b42bc9b947eab80ca1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 77.25
+      value: 77.75
       objectReference: {fileID: 0}
     - target: {fileID: 4408766629324058, guid: e0c5d780dad533b42bc9b947eab80ca1, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1424,7 +1424,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4408766629324058, guid: e0c5d780dad533b42bc9b947eab80ca1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 75.75
+      value: 76.25
       objectReference: {fileID: 0}
     - target: {fileID: 4408766629324058, guid: e0c5d780dad533b42bc9b947eab80ca1, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3049,6 +3049,13 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+  m_TileRefreshArray:
+  - serializedVersion: 1
+    m_DirtyIndex: 0
+  - serializedVersion: 1
+    m_DirtyIndex: 0
+  - serializedVersion: 1
+    m_DirtyIndex: 0
 --- !u!19719996 &960317697
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -5040,7 +5047,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4408766629324058, guid: e0c5d780dad533b42bc9b947eab80ca1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 74.25
+      value: 74.75
       objectReference: {fileID: 0}
     - target: {fileID: 4408766629324058, guid: e0c5d780dad533b42bc9b947eab80ca1, type: 2}
       propertyPath: m_LocalPosition.y
@@ -5073,10 +5080,6 @@ Prefab:
     - target: {fileID: 1271840318411108, guid: e0c5d780dad533b42bc9b947eab80ca1, type: 2}
       propertyPath: m_Name
       value: platform (65)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4408766629324058, guid: e0c5d780dad533b42bc9b947eab80ca1, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0c5d780dad533b42bc9b947eab80ca1, type: 2}

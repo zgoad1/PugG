@@ -77,9 +77,10 @@ public class EnemyAI : MonoBehaviour {
 
 		// Check if we can see the player
 		float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
+		bool inYRange = Mathf.Abs(transform.position.y + 0.5f - player.transform.position.y) < 0.8f;
 		int pDirec = (int)Mathf.Sign(player.transform.position.x - transform.position.x);
 		// bool canSee: The player is close enough, we won't fall into a pit, and we're facing them or already chasing them
-		bool canSee = Mathf.Abs(distanceToPlayer) < sightRadius && GroundCheck(pDirec) && (direction > 0 && pDirec > 0 || direction < 0 && pDirec < 0 || pDirec == 0 || chasing || player.odoring && GroundCheck(-pDirec));
+		bool canSee = Mathf.Abs(distanceToPlayer) < sightRadius && inYRange && GroundCheck(pDirec) && (direction > 0 && pDirec > 0 || direction < 0 && pDirec < 0 || pDirec == 0 || chasing || player.odoring && GroundCheck(-pDirec));
 		if(canSee) {
 			// If we can, start chasing them (or if we can smell them, start running away)
 			wandering = false;

@@ -9,22 +9,31 @@ public class Timer : MonoBehaviour {
     public float timeLimit;
     private float startTime;
 	public float timeLeft;
+    public bool levelcomplete = false;
+    string minutes;
+    string seconds;
+    public static Timer instance;
     void Start()
     {
+        instance = this;
         startTime = Time.time;
     }
 
     private void Update()
     {
-        timeLeft = timeLimit - Time.time + startTime;
-        string minutes = ((int)timeLeft / 60).ToString();
-        string seconds = (timeLeft % 60).ToString("f0");
+        if (levelcomplete == false)
+        {
+            timeLeft = timeLimit - Time.time + startTime;
+            string minutes = ((int)timeLeft / 60).ToString();
+            string seconds = (timeLeft % 60).ToString("f0");
 
-        timer.text = minutes + ":" + seconds;
-
+            timer.text = minutes + ":" + seconds;
+        }
         if (timeLeft <= 0)
         {
             SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
         }
+
+
     }
 }

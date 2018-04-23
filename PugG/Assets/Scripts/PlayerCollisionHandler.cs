@@ -22,7 +22,8 @@ public class PlayerCollisionHandler : MonoBehaviour {
 			Debug.Log("Hit goal");
 			// Replace the player with a fake so the user can't control it and it can't die
 			Transform pos = Player.transform;
-			Destroy(Player);
+            Timer.instance.levelcomplete=true;
+            Destroy(Player);
 			Instantiate(FakePlayer, pos);
 			EndScreen.GetComponent<Animation>().Play();
 		}

@@ -18,12 +18,12 @@ public class RandomPlatform1 : MonoBehaviour {
 		int rand = (int)Mathf.Floor(Random.Range(0f, sprites.Length));
 		SR.sprite = sprites[rand];
 		float rand1 = -1000000;
-		if(Random.Range(0f, 6f) < 1f) {
+		if(Random.Range(0f, 7.5f) < 1f) {
 			Instantiate(lamp);
 			rand1 = Random.Range(-0.7f, 0.7f);
 			lamp.transform.position = transform.position + new Vector3(rand1, 0.47f, 0f);
 		}
-		if(Random.Range(0f, 6f) < 1f) {
+		if(Random.Range(0f, 7f) < 1f) {
 			Instantiate(vase);
 			float rand2 = 0f;
 			do {

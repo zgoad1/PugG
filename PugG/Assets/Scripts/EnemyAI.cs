@@ -120,6 +120,7 @@ public class EnemyAI : MonoBehaviour {
 	public IEnumerator Wait(float time) {
 		//Debug.Log("AI: Waiting " + time + " seconds");
 		yield return new WaitForSeconds(time);
+		int pDirec = (int)Mathf.Sign(player.transform.position.x - transform.position.x);
 		if(canMove && !player.odoring) {
 			wandering = !wandering;
 			if(wandering) {
@@ -132,8 +133,18 @@ public class EnemyAI : MonoBehaviour {
 				StartCoroutine("Wait", waitTime);
 				Anim.SetBool("moving", false);
 			}
-		} else if(player.odoring) {
+		} else if(player.odoring && direction != pDirec) {	// if facing away from player
 			StartCoroutine("Wait", 3f);
+		} else if(player.odoring && direction == pDirec) {	// if facing player
+			// run away
+			wandering = false;
+			//StopCoroutine("Wait");
+			chasing = true;
+			speed = runSpeed;
+			Anim.SetBool("moving", true);
+
+			SetDirection(-pDirec);
+			transform.position += movement;
 		} else {
 			wandering = false;
 			Debug.Log("AI: Can't move");
@@ -156,7 +167,7 @@ public class EnemyAI : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D collision) {
 		var hit = collision.gameObject;
 		PlatformerCharacter2D p = hit.gameObject.GetComponent<PlatformerCharacter2D>();
-		if(p != null) {
+		if(p != null && !player.odoring) {
 			p.PushForce = new Vector2(10f * (hit.transform.position.x - transform.position.x), Mathf.Min(hit.transform.position.y - transform.position.y, 0.4f));
 			if(PlayerHP != null) {
 				PlayerHP.TakeDamage(damage);

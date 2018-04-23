@@ -252,7 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 0.02
   runSpeed: 0.03
-  damage: 10
+  damage: 20
   GroundCheckLeft: {fileID: 114844300939130776}
   GroundCheckRight: {fileID: 114666913842541126}
   Anim: {fileID: 0}

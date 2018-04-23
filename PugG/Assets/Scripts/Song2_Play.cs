@@ -6,6 +6,8 @@ public class Song2_Play : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GameObject.Find("Audio Manager").GetComponent<AudioManager>().Play("Song2");
+		AudioManager am = GameObject.Find("Audio Manager").GetComponent<AudioManager>();
+		am.Play("Song2");
+		am.FadeIn("Song2");
 	}
 }

@@ -27,6 +27,10 @@ public class PlatformerCharacter2D : MonoBehaviour {
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = false;  // For determining which way the player is currently facing.
 	public Vector2 PushForce = Vector2.zero;    // Set by other objects to push the player in some direction
+	[SerializeField] private Text FrisbeeUses;
+	[SerializeField] private Text TennisUses;
+	[SerializeField] private Text PugPoints;
+	public int reward = 0;				// Amount of Pug Points to award at the end of the level
 
 	// Powerups
 	private bool puAirJump = true;          // Whether the player has this powerup
@@ -77,6 +81,14 @@ public class PlatformerCharacter2D : MonoBehaviour {
 		}
 	}
 
+	public void UpdatePowerups() {
+		// Get powerups from game controller
+		SetPowerup(PowerupType.DoubleJump, TempTracker.TBUses > 0);
+		SetPowerup(PowerupType.LongJump, TempTracker.FBUses > 0);
+		SetPowerup(PowerupType.Odor, TempTracker.Odor);
+
+		SetPowerupText();
+	}
 
 	private void Awake() {
 		// Setting up references.
@@ -89,6 +101,8 @@ public class PlatformerCharacter2D : MonoBehaviour {
 		// Level ending variables
 		PlayerHealth = FindObjectOfType<Health>();
 		EndScreen = GameObject.Find("End Screen Root").transform.Find("End Screen").gameObject; // Only way to get an inactive object is to parent a Transform and use its Find() method
+
+		UpdatePowerups();
 	}
 
 
@@ -155,10 +169,17 @@ public class PlatformerCharacter2D : MonoBehaviour {
 			// Add a vertical force to the player.
 			m_Grounded = false;
 			m_Anim.SetBool("onGround", false);
-			if(Input.GetButton("LongJump") && !canAirJump) PushForce.x = longJumpVelocity;
-			if(!m_FacingRight) PushForce.x *= -1;
+			if(Input.GetButton("LongJump") && !canAirJump) {
+				if(TempTracker.FBUses > 0) {
+					PushForce.x = longJumpVelocity;
+					if(!m_FacingRight) PushForce.x *= -1;
+				}
+				TempTracker.FBUses--;
+			}
 			m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0f);
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+			if(canAirJump) TempTracker.TBUses--;
+			UpdatePowerups();
 			canAirJump = !canAirJump;
 		}
 	}
@@ -180,6 +201,9 @@ public class PlatformerCharacter2D : MonoBehaviour {
 			collision.gameObject.SetActive(false);
 			StartCoroutine("waitTime");
 		} else if(collision.gameObject.tag == "Goal") {
+			reward = PickupTracker.score / 35 + (int)FindObjectOfType<Timer>().timeLeft / 80;
+			PugPoints.text = " + " + reward;
+			TempTracker.PP += reward;
 			GetComponent<PlatformerCharacter2D>().enabled = false;
 			GetComponent<Platformer2DUserControl>().enabled = false;
 			m_Rigidbody2D.velocity = new Vector2(0f, 0f);
@@ -209,6 +233,13 @@ public class PlatformerCharacter2D : MonoBehaviour {
 		PlayerHealth.TakeDamage(0);                                             // take 0 damage so invincibility starts
 	}
 
+	private void SetPowerupText() {
+		if(PugPoints != null) {
+			PugPoints.text = ": " + TempTracker.PP;
+		}
+		FrisbeeUses.text = ": " + TempTracker.FBUses;
+		TennisUses.text = ": " + TempTracker.TBUses;
+	}
 
 	IEnumerator waitTime() {
 		yield return new WaitForSeconds(3);

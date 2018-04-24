@@ -12517,6 +12517,11 @@ Prefab:
       propertyPath: waypoints.Array.data[24]
       value: 
       objectReference: {fileID: 1863292738}
+    - target: {fileID: 61244294488897280, guid: e218f8e911b27a242b7bf6af208fcac3,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e218f8e911b27a242b7bf6af208fcac3, type: 2}
   m_IsPrefabParent: 0

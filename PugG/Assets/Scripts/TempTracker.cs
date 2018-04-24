@@ -37,7 +37,7 @@ public class TempTracker {
 			}
 		}
 	}
-	public static bool Odor = true;
+	public static bool Odor = false;
 
 	public static void incrementLevel() {
 		currentLevel++;

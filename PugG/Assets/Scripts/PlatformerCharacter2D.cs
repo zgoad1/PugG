@@ -30,7 +30,8 @@ public class PlatformerCharacter2D : MonoBehaviour {
 	[SerializeField] private Text FrisbeeUses;
 	[SerializeField] private Text TennisUses;
 	[SerializeField] private Text PugPoints;
-	[HideInInspector] public int reward = 0;				// Amount of Pug Points to award at the end of the level
+	[HideInInspector] public int reward = 0;                // Amount of Pug Points to award at the end of the level
+	private bool collidedWithGoal = false;
 
 	// Powerups
 	private bool puAirJump = true;          // Whether the player has this powerup
@@ -224,7 +225,8 @@ public class PlatformerCharacter2D : MonoBehaviour {
 				// play menacing sound effect
 			}
         }
-        else if (collision.gameObject.tag == "Goal") {
+        else if (collision.gameObject.tag == "Goal" && !collidedWithGoal) {
+			collidedWithGoal = true;
             reward = PickupTracker.score / 35 + (int)FindObjectOfType<Timer>().timeLeft / 80;
             PugPoints.text = " + " + reward;
             TempTracker.PP += reward;

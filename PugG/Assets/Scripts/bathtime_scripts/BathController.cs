@@ -24,13 +24,13 @@ public class BathController : MonoBehaviour {
 
         if (this.timer >= TIME_LIMIT)
         {
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene("Daytime");
         }
 
         if (GameObject.FindWithTag("Coin") == null || GameObject.FindWithTag("Player") ==  null)
         {
             TempTracker.Odor = true; 
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene("Daytime");
         }
 
 		

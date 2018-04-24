@@ -2,7 +2,7 @@
 
 public class TempTracker {
 	public static int PP = 3;
-	private static int tbu = 0;
+	private static int tbu = 10;
 	public static int TBUses {
 		get {
 			return tbu;
@@ -13,7 +13,7 @@ public class TempTracker {
 			}
 		}
 	}
-	private static int fbu = 0;
+	private static int fbu = 1;
 	public static int FBUses {
 		get {
 			return fbu;

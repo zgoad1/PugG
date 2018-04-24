@@ -6,6 +6,7 @@ using UnityEngine;
 public class RandomPlatform1 : MonoBehaviour {
 
 	[SerializeField] private Sprite[] sprites;
+	[SerializeField] private Sprite level3Sprite;
 	private SpriteRenderer SR;
 	private GameObject lamp;
 	private GameObject vase;
@@ -34,6 +35,8 @@ public class RandomPlatform1 : MonoBehaviour {
 				} while(Mathf.Abs(rand2 - rand1) < 0.2f);
 				vase.transform.position = transform.position + new Vector3(rand2, 0.38f, 0f);
 			}
+		} else if(SceneManager.GetActiveScene().name == "Level3") {
+			SR.sprite = level3Sprite;
 		}
 	}
 }

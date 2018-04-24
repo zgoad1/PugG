@@ -202,6 +202,7 @@ public class PlatformerCharacter2D : MonoBehaviour {
             StartCoroutine("waitTime");
         }
         else if (collision.gameObject.tag == "Soap") {
+            TempTracker.PP -= 3; 
             SceneManager.LoadScene("Bathtime");
         }
         else if (collision.gameObject.tag == "Goal") {

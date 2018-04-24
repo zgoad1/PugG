@@ -29,6 +29,7 @@ public class BathController : MonoBehaviour {
 
         if (GameObject.FindWithTag("Coin") == null || GameObject.FindWithTag("Player") ==  null)
         {
+            TempTracker.Odor = true; 
             SceneManager.LoadScene("Level1");
         }
 

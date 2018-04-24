@@ -196,24 +196,28 @@ public class PlatformerCharacter2D : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision) {
-		if(collision.gameObject.name == "Speed") {
-			m_MaxSpeed = m_PowerupSpeed;
-			collision.gameObject.SetActive(false);
-			StartCoroutine("waitTime");
-		} else if(collision.gameObject.tag == "Goal") {
-			reward = PickupTracker.score / 35 + (int)FindObjectOfType<Timer>().timeLeft / 80;
-			PugPoints.text = " + " + reward;
-			TempTracker.PP += reward;
-			GetComponent<PlatformerCharacter2D>().enabled = false;
-			GetComponent<Platformer2DUserControl>().enabled = false;
-			m_Rigidbody2D.velocity = new Vector2(0f, 0f);
-			m_Rigidbody2D.gravityScale = 0f;
-			m_Anim.SetBool("onGround", false);
-			m_Anim.SetFloat("velocity", 0f);
-			PlayerHealth.invincible = true;
-			//Instantiate(FakePlayer, pos);
-			EndScreen.SetActive(true);
-		}
+        if (collision.gameObject.name == "Speed") {
+            m_MaxSpeed = m_PowerupSpeed;
+            collision.gameObject.SetActive(false);
+            StartCoroutine("waitTime");
+        }
+        else if (collision.gameObject.tag == "Soap") {
+            SceneManager.LoadScene("Bathtime");
+        }
+        else if (collision.gameObject.tag == "Goal") {
+            reward = PickupTracker.score / 35 + (int)FindObjectOfType<Timer>().timeLeft / 80;
+            PugPoints.text = " + " + reward;
+            TempTracker.PP += reward;
+            GetComponent<PlatformerCharacter2D>().enabled = false;
+            GetComponent<Platformer2DUserControl>().enabled = false;
+            m_Rigidbody2D.velocity = new Vector2(0f, 0f);
+            m_Rigidbody2D.gravityScale = 0f;
+            m_Anim.SetBool("onGround", false);
+            m_Anim.SetFloat("velocity", 0f);
+            PlayerHealth.invincible = true;
+            //Instantiate(FakePlayer, pos);
+            EndScreen.SetActive(true);
+        }
 	}
 
 	void OnTriggerStay2D(Collider2D other) {

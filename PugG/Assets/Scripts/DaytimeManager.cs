@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManager;
 
-public class PugPoint : MonoBehaviour {
+public class DaytimeManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,10 +14,4 @@ public class PugPoint : MonoBehaviour {
 	void Update () {
 		
 	}
-
-    void OnTriggerEnter2D(Collider2D co)
-    {
-        if (co.tag == "Player")
-            Destroy(gameObject);
-    }
 }

@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class PugPoint : MonoBehaviour {
+public class BathController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -11,12 +12,11 @@ public class PugPoint : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if(GameObject.FindWithTag("Coin") == null)
+        {
+            SceneManager.LoadScene("Level1");
+        }
 		
 	}
-
-    void OnTriggerEnter2D(Collider2D co)
-    {
-        if (co.tag == "Player")
-            Destroy(gameObject);
-    }
 }

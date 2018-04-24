@@ -32,7 +32,7 @@ public class SoapMovement : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D co)
     {
-        if (co.name == "Puggy")
+        if (co.tag == "Player")
             Destroy(co.gameObject);
     }
 }

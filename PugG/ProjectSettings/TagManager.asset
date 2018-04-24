@@ -7,6 +7,9 @@ TagManager:
   - Pickup
   - Goal
   - Checkpoint
+  - Projectile
+  - Coin
+  - Soap
   layers:
   - Default
   - TransparentFX

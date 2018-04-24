@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PugPoint : MonoBehaviour {
+public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,10 +13,4 @@ public class PugPoint : MonoBehaviour {
 	void Update () {
 		
 	}
-
-    void OnTriggerEnter2D(Collider2D co)
-    {
-        if (co.tag == "Player")
-            Destroy(gameObject);
-    }
 }

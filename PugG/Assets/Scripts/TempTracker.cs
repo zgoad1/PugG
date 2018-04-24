@@ -1,6 +1,7 @@
 ﻿using UnityEngine.SceneManagement;
 
 public class TempTracker {
+	public static int currentLevel = 1;
 	public static int PP = 3;
 	private static int tbu = 10;
 	public static int TBUses {
@@ -25,4 +26,8 @@ public class TempTracker {
 		}
 	}
 	public static bool Odor = true;
+
+	public static void incrementLevel() {
+		currentLevel++;
+	}
 }

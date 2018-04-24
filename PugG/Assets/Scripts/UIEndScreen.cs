@@ -6,6 +6,7 @@ public class UIEndScreen : MonoBehaviour {
 	public GameObject song;
 
 	private void Start() {
+		TempTracker.incrementLevel();
 		Destroy(song);
 	}
 

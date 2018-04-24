@@ -18,7 +18,7 @@
 
 ***A***
 
-- Hitting a soap bar in the bath minigame will cause the player's sprite to vanish permanently and softlock the player
+- None
 
 ***B***
 

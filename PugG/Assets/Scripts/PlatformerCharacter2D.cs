@@ -118,16 +118,16 @@ public class PlatformerCharacter2D : MonoBehaviour {
 				if(!setCanAirJumpFalse) {
 					canAirJump = false;
 					setCanAirJumpFalse = true;
-					setCanAirJumpTrue = false;
 				}
+				setCanAirJumpTrue = false;
 				break;
 			} else {
 				// If we're not touching the ground
-				setCanAirJumpFalse = false;
-				if(!setCanAirJumpTrue) {
-					canAirJump = true;
-					setCanAirJumpTrue = true;
-				}
+				//setCanAirJumpFalse = false;
+				//if(!setCanAirJumpTrue) {
+				//	canAirJump = true;
+				//	setCanAirJumpTrue = true;
+				//}
 			}
 		}
 		m_Anim.SetBool("onGround", m_Grounded);
@@ -167,7 +167,8 @@ public class PlatformerCharacter2D : MonoBehaviour {
 		// If the player should jump...
 		if((m_Grounded || canAirJump) && jump/*&& m_Anim.GetBool("Ground")*/) {
 			// Add a vertical force to the player.
-			m_Grounded = false;
+			Debug.Log("" + m_Rigidbody2D.velocity.y);
+			float ivelocity = m_Rigidbody2D.velocity.y;
 			m_Anim.SetBool("onGround", false);
 			if(Input.GetButton("LongJump") && !canAirJump) {
 				if(TempTracker.FBUses > 0) {
@@ -178,9 +179,23 @@ public class PlatformerCharacter2D : MonoBehaviour {
 			}
 			m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0f);
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-			if(canAirJump) TempTracker.TBUses--;
+			if(canAirJump && Mathf.Abs(ivelocity) >= 0.25f) {
+				TempTracker.TBUses--;
+				canAirJump = false;
+			}
+			if(m_Grounded && !setCanAirJumpTrue) {
+				Debug.Log("Set canAirJump to true");
+				canAirJump = true;
+				setCanAirJumpTrue = true;
+				setCanAirJumpFalse = true;
+			} else {
+				Debug.Log("Set canAirJump failed.\nm_Grounded: " + m_Grounded + "\nsetCanAirJumpTrue: " + setCanAirJumpTrue);
+			}
+			m_Grounded = false;
 			UpdatePowerups();
-			canAirJump = !canAirJump;
+		} else if(jump) {
+			Debug.Log("Jump failed.\nm_Grounded: " + m_Grounded + "\ncanAirJump: " + canAirJump + "\nsetCanAirJumpTrue: " + setCanAirJumpTrue);
+			setCanAirJumpFalse = false;
 		}
 	}
 
@@ -202,13 +217,18 @@ public class PlatformerCharacter2D : MonoBehaviour {
             StartCoroutine("waitTime");
         }
         else if (collision.gameObject.tag == "Soap") {
-            TempTracker.PP -= 3; 
-            SceneManager.LoadScene("Bathtime");
+			if(TempTracker.PP - 3 >= 0 && !TempTracker.Odor) {
+				TempTracker.PP -= 3;
+				SceneManager.LoadScene("Bathtime");
+			} else {
+				// play menacing sound effect
+			}
         }
         else if (collision.gameObject.tag == "Goal") {
             reward = PickupTracker.score / 35 + (int)FindObjectOfType<Timer>().timeLeft / 80;
             PugPoints.text = " + " + reward;
             TempTracker.PP += reward;
+			reward = 0;
             GetComponent<PlatformerCharacter2D>().enabled = false;
             GetComponent<Platformer2DUserControl>().enabled = false;
             m_Rigidbody2D.velocity = new Vector2(0f, 0f);

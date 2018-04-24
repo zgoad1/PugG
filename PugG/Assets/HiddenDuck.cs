@@ -21,16 +21,17 @@ public class HiddenDuck : MonoBehaviour {
 	private void OnTriggerStay2D(Collider2D collision) {
 		if(Input.GetButtonDown("Interact")) {
 			dialogue.gameObject.SetActive(true);
-			StartCoroutine("Wait");
+			StartCoroutine("Duck");
 		}
 	}
 
-	private IEnumerator Wait() {
+	private IEnumerator Duck() {
 		yield return new WaitForSeconds(2f);
 		explosion.gameObject.SetActive(true);
 		explosion.Play("Explosion");
 		dialogue.gameObject.SetActive(false);
 		GetComponent<SpriteRenderer>().enabled = false;
+		player.GetComponent<Health>().TakeDamage(40);
 		yield return new WaitForSeconds(0.35f);
 		player.PushForce.x = -300f;
 		player.PushForce.y = 3f;

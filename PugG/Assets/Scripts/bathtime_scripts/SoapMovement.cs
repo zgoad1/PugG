@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoapMovement : MonoBehaviour {
     public Transform[] waypoints;
@@ -33,6 +34,10 @@ public class SoapMovement : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D co)
     {
         if (co.tag == "Player")
+        {
             Destroy(co.gameObject);
+            SceneManager.LoadScene("Level1");
+        }
+        
     }
 }
